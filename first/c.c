@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <netdb.h>
 
-#define PORT 8080
+#define PORT 8081
 
 int main() {
     int sockfd, n;
@@ -55,14 +55,7 @@ int main() {
 
     // Receive and display "Hello world" messages from server
     printf("Server response:\n");
-    while ((n = read(sockfd, buffer, 255)) > 0) {
-        printf("%s", buffer);
-        bzero(buffer, 256);
-    }
-    if (n < 0) {
-        perror("Error reading from socket");
-        exit(1);
-    }
+
 
     // Close socket
     close(sockfd);

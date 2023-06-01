@@ -6,7 +6,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#define PORT 8080
+#define PORT 8081
 
 int main() {
     int sockfd, newsockfd, clientlen, n;
@@ -59,18 +59,13 @@ int main() {
 
     // Send "Hello world" n number of times to the client
     for (int i = 0; i < num; i++) {
-        char response[] = "Hello world\n";
-        n = write(newsockfd, response, strlen(response));
-        if (n < 0) {
-            perror("Error writing to socket");
-            exit(1);
+         
+           printf("Hello world\n");
         }
-    }
 
     // Close sockets
     close(newsockfd);
     close(sockfd);
-
     return 0;
 }
 
